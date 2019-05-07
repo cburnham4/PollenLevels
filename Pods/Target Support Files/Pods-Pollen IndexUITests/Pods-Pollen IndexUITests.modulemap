@@ -1,0 +1,6 @@
+framework module Pods_Pollen_IndexUITests {
+  umbrella header "Pods-Pollen IndexUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
