@@ -6,6 +6,7 @@ target 'Pollen Index' do
   use_frameworks!
 
   pod 'LhHelpers'
+  pod 'LocationPicker'
 
   target 'Pollen IndexTests' do
     inherit! :search_paths
