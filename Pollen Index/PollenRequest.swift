@@ -42,10 +42,9 @@ struct PollenDayResponse: Codable {
 
 enum PollenLevel : String, Codable {
     case Low = "Low"
-    case Medium = "Medium"
+    case Moderate = "Moderate"
     case High = "High"
 }
-
 
 struct PollenRequest {
 

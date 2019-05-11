@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zma-Eh-M3x">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Today's Air Quality-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pollen_Index" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="WWX-He-ZdT">
-                                <rect key="frame" x="16" y="60" width="382" height="258"/>
+                                <rect key="frame" x="16" y="104" width="382" height="258"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="o1r-Xy-Nnj">
                                         <rect key="frame" x="0.0" y="-50" width="382" height="50"/>
@@ -54,9 +54,8 @@
                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3u2-KX-fqY">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pollen Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PP-Jr-niV">
-                                                <rect key="frame" x="8" y="8" width="353" height="34"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pollen Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PP-Jr-niV">
+                                                <rect key="frame" x="8" y="15" width="91" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -72,6 +71,8 @@
                                         <color key="tintColor" red="0.37356263070000001" green="1" blue="0.19478699560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="ZCq-TO-lAA" firstAttribute="centerY" secondItem="3u2-KX-fqY" secondAttribute="centerY" id="DeW-ej-RqN"/>
+                                            <constraint firstItem="5PP-Jr-niV" firstAttribute="centerY" secondItem="3u2-KX-fqY" secondAttribute="centerY" id="Ke0-7o-qzW"/>
+                                            <constraint firstItem="5PP-Jr-niV" firstAttribute="leading" secondItem="3u2-KX-fqY" secondAttribute="leading" constant="8" id="RPm-cN-t5G"/>
                                             <constraint firstAttribute="height" constant="50" id="WbD-5m-8BJ"/>
                                             <constraint firstAttribute="trailing" secondItem="ZCq-TO-lAA" secondAttribute="trailing" constant="48" id="XcF-ch-1i6"/>
                                         </constraints>
@@ -79,9 +80,8 @@
                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEG-xu-ONv">
                                         <rect key="frame" x="0.0" y="56" width="382" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsF-xR-Pv5">
-                                                <rect key="frame" x="8" y="15" width="385" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsF-xR-Pv5">
+                                                <rect key="frame" x="8" y="15" width="64.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -97,7 +97,9 @@
                                         <color key="tintColor" red="0.37356263070000001" green="1" blue="0.19478699560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Dez-fD-gwz" firstAttribute="centerY" secondItem="bEG-xu-ONv" secondAttribute="centerY" id="9yW-aZ-RPM"/>
+                                            <constraint firstItem="JsF-xR-Pv5" firstAttribute="centerY" secondItem="bEG-xu-ONv" secondAttribute="centerY" id="Nc8-0b-iA3"/>
                                             <constraint firstAttribute="trailing" secondItem="Dez-fD-gwz" secondAttribute="trailing" constant="48" id="auV-6r-llS"/>
+                                            <constraint firstItem="JsF-xR-Pv5" firstAttribute="leading" secondItem="bEG-xu-ONv" secondAttribute="leading" constant="8" id="yH9-PV-Ae4"/>
                                             <constraint firstAttribute="height" constant="50" id="zJp-rJ-TcL"/>
                                         </constraints>
                                     </view>
@@ -126,7 +128,7 @@
                                             <constraint firstAttribute="height" constant="50" id="ri6-9G-Lgs"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tS-dw-KZY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tS-dw-KZY">
                                         <rect key="frame" x="0.0" y="168" width="382" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PQD-IW-MMa"/>
@@ -171,15 +173,36 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Today's Air Quality" id="QHN-I8-Gm2"/>
                     <connections>
                         <outlet property="airQualityLabel" destination="pFQ-hg-Bdz" id="zBC-1L-cYQ"/>
                         <outlet property="changeLocationButton" destination="RSs-gg-MA5" id="PEY-hg-cHU"/>
+                        <outlet property="locationLabel" destination="8tS-dw-KZY" id="kX4-CE-MPh"/>
                         <outlet property="pollenLevel" destination="ZCq-TO-lAA" id="kNX-R8-8wl"/>
                         <outlet property="weatherLabel" destination="Dez-fD-gwz" id="R6Z-cT-1jX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="giv-Jh-mDh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zma-Eh-M3x" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IWV-mh-Y6X">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8gf-ZG-RoW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6KD-mX-xxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="229" y="139"/>
         </scene>
     </scenes>
     <resources>

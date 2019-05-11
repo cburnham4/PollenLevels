@@ -1,20 +1,29 @@
 PODS:
   - LhHelpers (1.3.2)
-  - LocationPicker (1.2.0)
+  - LocationPicker (1.3.0)
 
 DEPENDENCIES:
   - LhHelpers
-  - LocationPicker
+  - LocationPicker (from `https://github.com/letshangllc/LocationPicker`, branch `master`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - LhHelpers
-    - LocationPicker
+
+EXTERNAL SOURCES:
+  LocationPicker:
+    :branch: master
+    :git: https://github.com/letshangllc/LocationPicker
+
+CHECKOUT OPTIONS:
+  LocationPicker:
+    :commit: 2e62d94712779469b004b90f70cfcd0007ecb6fe
+    :git: https://github.com/letshangllc/LocationPicker
 
 SPEC CHECKSUMS:
   LhHelpers: 332cec1e50a20cb0681535fa5ef0162d36c53a94
-  LocationPicker: d91f9fe50493d8058391fe1408aa2a8db49a584d
+  LocationPicker: f0df70bfedc20c4ba475e81c59997f64a77a9752
 
-PODFILE CHECKSUM: 7c100af8ea3a56e6058afc33e4faeb36dc67ce4c
+PODFILE CHECKSUM: a1d887e13070e03ee1a54724f4bfc94b17a30ebd
 
 COCOAPODS: 1.6.1

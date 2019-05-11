@@ -11,23 +11,58 @@ import LhHelpers
 import CoreLocation
 import LocationPicker
 
-class PollenViewModel: CLLocationManagerDelegate {
-    
+class PollenViewModel: NSObject, CLLocationManagerDelegate {
+
     var locationManager = CLLocationManager();
     var latitude = 70.0;
     var longitude = 70.0;
-    var placemark: CLPlacemark?
+    var locationText = Observable("Location: Unknown")
+    var placemark: CLPlacemark? {
+        didSet {
+            if let containsPlacemark = placemark {
+                //stop updating location to save battery life
+                locationManager.stopUpdatingLocation()
+                let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
+                let postalCode = (containsPlacemark.postalCode != nil) ? containsPlacemark.postalCode : ""
+                let administrativeArea = (containsPlacemark.administrativeArea != nil) ? containsPlacemark.administrativeArea : ""
+                
+                let cordinates = containsPlacemark.location?.coordinate
+                self.latitude = (cordinates?.latitude)!
+                self.longitude = (cordinates?.longitude)!
+                
+                let address = locality! + ", " + administrativeArea! + " " + postalCode!;
+                locationText.value = "Location: \(address)"
+            }
+        }
+    }
     
     var pollenLevel: Observable<PollenDayResponse?>
     var airQuality: Observable<AirQualityData?>
     
-    init() {
+    override init() {
         pollenLevel = Observable(nil)
         airQuality = Observable(nil)
     }
     
+    func startLocationTracking() {
+        /* Get the location of the user */
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    var location: CLLocation {
+        return CLLocation(latitude: self.latitude, longitude: self.longitude)
+    }
+    
+    func makeRequests() {
+        getPollenLevel()
+        getAirQuality()
+    }
+    
     func getPollenLevel() {
-        let pollenRequest = PollenRequest(lat: 30.0, long: 30.0)
+        let pollenRequest = PollenRequest(lat: latitude, long: longitude)
         pollenRequest.makeRequest(result: { [weak self] reponse in
             switch reponse {
             case .success(let pollenResponse):
@@ -35,10 +70,11 @@ class PollenViewModel: CLLocationManagerDelegate {
             case .failure(let _):
                 self?.pollenLevel.value = nil
             }
-        })}
+        })
+    }
     
     func getAirQuality() {
-        let request = AirQualityRequest(lat: 38.8, long: -77.0)
+        let request = AirQualityRequest(lat: latitude, long: longitude)
         request.makeRequest(result: { [weak self] response in
             switch response {
             case .success(let data):
@@ -47,12 +83,13 @@ class PollenViewModel: CLLocationManagerDelegate {
             case .failure(let _):
                 break
             }
-        })}
+        })
+    }
     
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         /* Stop getting user location once the first location is recieved */
-        self.locationManager.stopUpdatingLocation();
+        self.locationManager.stopUpdatingLocation()
         
         /* get the longitude and latitude of the user */
         let locationlast = locations.last
@@ -69,13 +106,13 @@ class PollenViewModel: CLLocationManagerDelegate {
             if placemarks!.count > 0 {
                 let pm = placemarks![0]
                 self.placemark = pm
-                self.displayLocationInfo(pm)
+                // self.displayLocationInfo(pm)
             } else {
                 print("Problem with the data received from geocoder")
             }
         })
         
-        createRequest();
+        makeRequests()
     }
 }
 
@@ -85,8 +122,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var airQualityLabel: UILabel!
     @IBOutlet weak var changeLocationButton: UIButton!
+    @IBOutlet weak var locationLabel: UILabel!
     
-    var viewModel: PollenViewModel! 
+    var viewModel: PollenViewModel!
     
     lazy var pollenLevelBind = {
         return Bond<PollenDayResponse?>(valueChanged: { [weak self] value in
@@ -108,15 +146,24 @@ class ViewController: UIViewController {
         })
     }()
     
+    lazy var locationTextBind = {
+        return Bond<String>(valueChanged: { [weak self] value in
+            guard let strongSelf = self else { return }
+            strongSelf.locationLabel.text = value
+        })
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if viewModel == nil {
             viewModel = PollenViewModel()
         }
-        viewModel.getPollenLevel()
-        viewModel.getAirQuality()
+        viewModel.startLocationTracking()
         
+        locationLabel.text = viewModel.locationText.value
+        
+        locationTextBind.bind(observable: viewModel.locationText)
         pollenLevelBind.bind(observable: viewModel.pollenLevel)
         airQualityBind.bind(observable: viewModel.airQuality)
     }
@@ -126,8 +173,8 @@ class ViewController: UIViewController {
         case .Low:
             pollenLevel.text = PollenLevel.Low.rawValue
             view.backgroundColor = .red
-        case .Medium:
-            pollenLevel.text = PollenLevel.Medium.rawValue
+        case .Moderate:
+            pollenLevel.text = PollenLevel.Moderate.rawValue
             view.backgroundColor = .orange
         case .High:
             pollenLevel.text = PollenLevel.High.rawValue
@@ -154,13 +201,11 @@ class ViewController: UIViewController {
         let locationPicker = LocationPickerViewController()
         
         // you can optionally set initial location
-        let location = CLLocation(latitude: self.latitude, longitude: self.longitude)
-        if(placemark == nil) {
-            //location.placemark
-        }
+//        if(placemark == nil) {
+//            //location.placemark
+//        }
         
-        let initialLocation = Location(name: "Current Location", location: location, placemark: self.placemark!)
-        
+        let initialLocation = Location(name: "Current Location", location: viewModel.location, placemark: viewModel.placemark)
         
         locationPicker.location = initialLocation
         
@@ -186,12 +231,11 @@ class ViewController: UIViewController {
         // optional region distance to be used for creation region when user selects place from search results
         locationPicker.resultRegionDistance = 500 // default: 600
         
-        locationPicker.completion = { location in
+        locationPicker.completion = { [weak self] location in
             // do some awesome stuff with location
             print(location?.placemark)
-            self.placemark = location?.placemark
-            self.displayLocationInfo(self.placemark)
-            self.createRequest()
+            self?.viewModel.placemark = location?.placemark
+            self?.viewModel.makeRequests()
         }
         
         navigationController?.pushViewController(locationPicker, animated: true)

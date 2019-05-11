@@ -6,7 +6,9 @@ target 'Pollen Index' do
   use_frameworks!
 
   pod 'LhHelpers'
-  pod 'LocationPicker'
+  
+  # Fork location picker to get swift 4.2
+  pod 'LocationPicker', :git => 'https://github.com/letshangllc/LocationPicker', :branch => 'master'
 
   target 'Pollen IndexTests' do
     inherit! :search_paths

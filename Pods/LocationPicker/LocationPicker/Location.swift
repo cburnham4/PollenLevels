@@ -18,11 +18,11 @@ public class Location: NSObject {
 	// difference from placemark location is that if location was reverse geocoded,
 	// then location point to user selected location
 	public let location: CLLocation
-	public let placemark: CLPlacemark
+	public let placemark: CLPlacemark?
 	
 	public var address: String {
 		// try to build full address first
-		if let addressDic = placemark.addressDictionary {
+		if let addressDic = placemark?.addressDictionary {
 			if let lines = addressDic["FormattedAddressLines"] as? [String] {
 				return lines.joined(separator: ", ")
 			} else {
@@ -34,9 +34,9 @@ public class Location: NSObject {
 		}
 	}
 	
-	public init(name: String?, location: CLLocation? = nil, placemark: CLPlacemark) {
+	public init(name: String?, location: CLLocation? = nil, placemark: CLPlacemark?) {
 		self.name = name
-		self.location = location ?? placemark.location!
+		self.location = location ?? CLLocation(latitude: 30.0, longitude: 30.0)
 		self.placemark = placemark
 	}
 }
