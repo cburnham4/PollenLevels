@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0AEC616FA2BE9AA65BED1B1FDB18193"
+               BlueprintIdentifier = "5BC59CE8658584BD0B24A9DCBB0FC567"
                BuildableName = "Pods_Pollen_Index.framework"
                BlueprintName = "Pods-Pollen Index"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D0AEC616FA2BE9AA65BED1B1FDB18193"
+            BlueprintIdentifier = "5BC59CE8658584BD0B24A9DCBB0FC567"
             BuildableName = "Pods_Pollen_Index.framework"
             BlueprintName = "Pods-Pollen Index"
             ReferencedContainer = "container:Pods.xcodeproj">

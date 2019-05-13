@@ -150,7 +150,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMw-0f-W0Q" customClass="GADBannerView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMw-0f-W0Q" customClass="GADBannerView">
                                 <rect key="frame" x="47" y="812" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -176,6 +176,7 @@
                     <navigationItem key="navigationItem" title="Today's Air Quality" id="QHN-I8-Gm2"/>
                     <connections>
                         <outlet property="airQualityLabel" destination="pFQ-hg-Bdz" id="zBC-1L-cYQ"/>
+                        <outlet property="bannerView" destination="TMw-0f-W0Q" id="2Vd-0e-piY"/>
                         <outlet property="changeLocationButton" destination="RSs-gg-MA5" id="PEY-hg-cHU"/>
                         <outlet property="locationLabel" destination="8tS-dw-KZY" id="kX4-CE-MPh"/>
                         <outlet property="pollenLevel" destination="ZCq-TO-lAA" id="kNX-R8-8wl"/>

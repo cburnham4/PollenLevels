@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>178414525506-4ovgk9m44v1ddlqm5lp631j6pfu8ng2d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.178414525506-4ovgk9m44v1ddlqm5lp631j6pfu8ng2d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBTnfy2ZV_GxLwSpG1QEVMSwFDbHx76E9k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>178414525506</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>letshang.Pollen-Index</string>
+	<key>PROJECT_ID</key>
+	<string>pollen-air-quality</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pollen-air-quality.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:178414525506:ios:44c7da2a24ea0217</string>
+	<key>DATABASE_URL</key>
+	<string>https://pollen-air-quality.firebaseio.com</string>
+</dict>
+</plist>

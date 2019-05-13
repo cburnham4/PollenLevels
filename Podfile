@@ -6,6 +6,8 @@ target 'Pollen Index' do
   use_frameworks!
 
   pod 'LhHelpers'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/AdMob'
   
   # Fork location picker to get swift 4.2
   pod 'LocationPicker', :git => 'https://github.com/letshangllc/LocationPicker', :branch => 'master'

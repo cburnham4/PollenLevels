@@ -10,6 +10,7 @@ import UIKit
 import LhHelpers
 import CoreLocation
 import LocationPicker
+import GoogleMobileAds
 
 class PollenViewModel: NSObject, CLLocationManagerDelegate {
 
@@ -123,6 +124,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var airQualityLabel: UILabel!
     @IBOutlet weak var changeLocationButton: UIButton!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     var viewModel: PollenViewModel!
     
@@ -166,6 +168,10 @@ class ViewController: UIViewController {
         locationTextBind.bind(observable: viewModel.locationText)
         pollenLevelBind.bind(observable: viewModel.pollenLevel)
         airQualityBind.bind(observable: viewModel.airQuality)
+        
+        bannerView.adUnitID = "ca-app-pub-8223005482588566/5223451763"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
     
     func loadPollenLevel(pollenResponse: PollenDayResponse) {
