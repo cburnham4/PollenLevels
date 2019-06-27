@@ -44,15 +44,16 @@ enum PollenLevel : String, Codable {
     case Low = "Low"
     case Moderate = "Moderate"
     case High = "High"
+    case VeryHigh = "Very High"
 }
 
 struct PollenRequest {
 
-    let lat: Double
-    let long: Double
+    var lat: Double
+    var long: Double
     
     func makeRequest(result: @escaping (Response<PollenResponse>) -> ()) {
-        let latLong = String.init(format: "[%f,%f]", lat, long)
+        let latLong = String.init(format: "[%f,%f]", 38.890759, -77.084747)
         let pollenEndpoint: String = "https://socialpollencount.co.uk/api/forecast?location=\(latLong)"
         print(pollenEndpoint)
         guard let url = URL(string: pollenEndpoint) else {

@@ -178,13 +178,16 @@ class ViewController: UIViewController {
         switch pollenResponse.pollen_count {
         case .Low:
             pollenLevel.text = PollenLevel.Low.rawValue
-            view.backgroundColor = .red
+            pollenLevel.textColor = .green
         case .Moderate:
             pollenLevel.text = PollenLevel.Moderate.rawValue
-            view.backgroundColor = .orange
+            pollenLevel.textColor = .orange
         case .High:
             pollenLevel.text = PollenLevel.High.rawValue
-            view.backgroundColor = .green
+            pollenLevel.textColor  = .red
+        case .VeryHigh:
+            pollenLevel.text = PollenLevel.VeryHigh.rawValue
+            pollenLevel.textColor = .red
         }
         weatherLabel.text = pollenResponse.weather
     }
