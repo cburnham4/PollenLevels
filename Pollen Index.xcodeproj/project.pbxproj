@@ -186,6 +186,7 @@
 				E097DBEC227F77FC00634B12 /* Frameworks */,
 				E097DBED227F77FC00634B12 /* Resources */,
 				84DE5F53952B1D59A13BC62C /* [CP] Embed Pods Frameworks */,
+				E07043B322C58C73009010F3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -399,6 +400,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pollen Index/Pods-Pollen Index-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E07043B322C58C73009010F3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

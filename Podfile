@@ -8,6 +8,9 @@ target 'Pollen Index' do
   pod 'LhHelpers'
   pod 'Firebase/Analytics'
   pod 'Firebase/AdMob'
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Crashlytics', '~> 3.13.2'
+
   
   # Fork location picker to get swift 4.2
   pod 'LocationPicker', :git => 'https://github.com/letshangllc/LocationPicker', :branch => 'master'

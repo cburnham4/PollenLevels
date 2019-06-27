@@ -1,4 +1,7 @@
 PODS:
+  - Crashlytics (3.13.2):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
   - Firebase/AdMob (6.0.0):
     - Firebase/CoreOnly
     - Google-Mobile-Ads-SDK (~> 7.43)
@@ -60,6 +63,8 @@ PODS:
   - nanopb/encode (0.3.901)
 
 DEPENDENCIES:
+  - Crashlytics (~> 3.13.2)
+  - Fabric (~> 1.10.2)
   - Firebase/AdMob
   - Firebase/Analytics
   - LhHelpers
@@ -67,6 +72,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -88,6 +95,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/letshangllc/LocationPicker
 
 SPEC CHECKSUMS:
+  Crashlytics: 611738c7847f8291a1a51084e35987b86ba6b3ee
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   Firebase: fa80b9d987ca014a1ba9357496ef2a0178b28b12
   FirebaseAnalytics: 1743c5f4de3687d0745709dfdc4b1dea1484f44c
   FirebaseCore: e38f025287b413255a53acc1945d048a112047f7
@@ -99,6 +108,6 @@ SPEC CHECKSUMS:
   LocationPicker: f0df70bfedc20c4ba475e81c59997f64a77a9752
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: 9625ecc15d9e568a79c772ac34bfc3aa966d63a3
+PODFILE CHECKSUM: 5ee94ab373733bd260ce2c9e57897c58078cbd7f
 
 COCOAPODS: 1.6.1
