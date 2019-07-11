@@ -16,7 +16,7 @@ struct AirQualityData: Codable {
     let aqi: Int
     
     var level: String {
-        var text: String
+        // TODO: Angel, complete this switch statement. This is a computer property: https://docs.swift.org/swift-book/LanguageGuide/Properties.html
         switch aqi {
         case 0...50:
             return "Good (\(aqi))"
@@ -32,39 +32,17 @@ struct AirQualityData: Codable {
     }
 }
 
-struct AirQualityRequest {
+struct AirQualityRequest: Request {
+
+    typealias ResultObject = AirQualityResponse
     
     let apiKey = "4f344d127c41eb841e83d533d2c4a336ce5c3cec"
     
     let lat: Double
     let long: Double
     
-    func makeRequest(result: @escaping (Response<AirQualityData>) -> ()) {
+    var endpoint: String {
         let latLong = String.init(format: "%f;%f", lat, long)
-        let urlString = "https://api.waqi.info/feed/geo:\(latLong)/?token=\(apiKey)"
-
-        guard let url = URL(string: urlString) else {
-            print("Error: cannot create URL")
-            return
-        }
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: url, completionHandler: { data, response, error in
-            guard error == nil else {
-                result(.failure(error: error!.localizedDescription))
-                return
-            }
-            guard let responseData = data else {
-                result(.failure(error: "Error: did not receive data"))
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            let airQualityResponse = try! decoder.decode(AirQualityResponse.self, from: responseData)
-            DispatchQueue.main.async {
-                result(.success(airQualityResponse.data))
-            }
-        })
-        task.resume()
+        return "https://api.waqi.info/feed/geo:\(latLong)/?token=\(apiKey)"
     }
 }

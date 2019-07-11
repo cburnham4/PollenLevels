@@ -8,11 +8,6 @@
 
 import Foundation
 
-enum Response<T> {
-    case success(T)
-    case failure(error: String)
-}
-
 struct PollenResponse: Codable {
     var forecast: [PollenDayResponse]
     
@@ -47,38 +42,15 @@ enum PollenLevel : String, Codable {
     case VeryHigh = "Very High"
 }
 
-struct PollenRequest {
-
-    var lat: Double
-    var long: Double
+struct PollenRequest: Request {
     
-    func makeRequest(result: @escaping (Response<PollenResponse>) -> ()) {
+    let lat: Double
+    let long: Double
+    
+    typealias ResultObject = PollenResponse
+    
+    var endpoint: String {
         let latLong = String.init(format: "[%f,%f]", 38.890759, -77.084747)
-        let pollenEndpoint: String = "https://socialpollencount.co.uk/api/forecast?location=\(latLong)"
-        print(pollenEndpoint)
-        guard let url = URL(string: pollenEndpoint) else {
-            print("Error: cannot create URL")
-            return
-        }
-        
-        let session = URLSession.shared
-        let task = session.dataTask(with: url, completionHandler: { data, response, error in
-            guard error == nil else {
-                result(.failure(error: error!.localizedDescription))
-                return
-            }
-            guard let responseData = data else {
-                result(.failure(error: "Error: did not receive data"))
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            let pollenResponse = try! decoder.decode(PollenResponse.self, from: responseData)
-            DispatchQueue.main.async {
-                result(.success(pollenResponse))
-            }
-            
-        })
-        task.resume()
+        return "https://socialpollencount.co.uk/api/forecast?location=\(latLong)"
     }
 }

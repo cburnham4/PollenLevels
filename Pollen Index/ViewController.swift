@@ -14,7 +14,7 @@ import GoogleMobileAds
 
 class PollenViewModel: NSObject, CLLocationManagerDelegate {
 
-    var locationManager = CLLocationManager();
+    var locationManager = CLLocationManager()
     var latitude = 70.0;
     var longitude = 70.0;
     var locationText = Observable("Location: Unknown")
@@ -49,6 +49,7 @@ class PollenViewModel: NSObject, CLLocationManagerDelegate {
         /* Get the location of the user */
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
+        locationManager.distanceFilter = 10.0
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
@@ -68,7 +69,7 @@ class PollenViewModel: NSObject, CLLocationManagerDelegate {
             switch reponse {
             case .success(let pollenResponse):
                 self?.pollenLevel.value = pollenResponse.currentPollen
-            case .failure(let _):
+            case .failure( _):
                 self?.pollenLevel.value = nil
             }
         })
@@ -78,11 +79,10 @@ class PollenViewModel: NSObject, CLLocationManagerDelegate {
         let request = AirQualityRequest(lat: latitude, long: longitude)
         request.makeRequest(result: { [weak self] response in
             switch response {
-            case .success(let data):
-                self?.airQuality.value = data
-                break
-            case .failure(let _):
-                break
+            case .success(let result):
+                self?.airQuality.value = result.data
+            case .failure( _):
+                self?.airQuality.value = nil
             }
         })
     }
@@ -200,6 +200,9 @@ class ViewController: UIViewController {
                 AlertUtils.createAlert(view: self, title: "Location Permission Disabled", message: "Please Enable Location Services for this App")
             case .authorizedAlways, .authorizedWhenInUse:
                 openLocationPicker()
+            @unknown default:
+                // TODO: Angel add an alert here saying there was an error
+                break; // TODO: remove this break
             }
         } else {
             AlertUtils.createAlert(view: self, title: "Location Disabled", message: "Please Enable Location Services")
@@ -208,25 +211,14 @@ class ViewController: UIViewController {
     
     func openLocationPicker(){
         let locationPicker = LocationPickerViewController()
-        
-        // you can optionally set initial location
-//        if(placemark == nil) {
-//            //location.placemark
-//        }
-        
+
         let initialLocation = Location(name: "Current Location", location: viewModel.location, placemark: viewModel.placemark)
         
         locationPicker.location = initialLocation
         
-        
-        // button placed on right bottom corner
-        locationPicker.showCurrentLocationButton = true // default: true
-        
-        // default: navigation bar's `barTintColor` or `.whiteColor()`
+        locationPicker.showCurrentLocationButton = true
         locationPicker.currentLocationButtonBackground = .blue
-        
-        // ignored if initial location is given, shows that location instead
-        locationPicker.showCurrentLocationInitially = true // default: true
+        locationPicker.showCurrentLocationInitially = true
         
         locationPicker.mapType = .standard // default: .Hybrid
         
@@ -241,8 +233,6 @@ class ViewController: UIViewController {
         locationPicker.resultRegionDistance = 500 // default: 600
         
         locationPicker.completion = { [weak self] location in
-            // do some awesome stuff with location
-            print(location?.placemark)
             self?.viewModel.placemark = location?.placemark
             self?.viewModel.makeRequests()
         }

@@ -10,6 +10,7 @@
 		2B896A941CC1B1FCC0F76E94 /* Pods_Pollen_Index.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D0C73F5D92B8FD26B9BE10 /* Pods_Pollen_Index.framework */; };
 		8C4FC7763DDB4D55B6BC8F19 /* Pods_Pollen_IndexUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65891F498922C2A483AEDAFB /* Pods_Pollen_IndexUITests.framework */; };
 		E02AC5D5228A188C0093E216 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E02AC5D4228A188C0093E216 /* GoogleService-Info.plist */; };
+		E02D4E0322D7D5DC00E1E488 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02D4E0222D7D5DC00E1E488 /* Request.swift */; };
 		E030DB8B22810DC80043840D /* AirQualityRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030DB8A22810DC80043840D /* AirQualityRequest.swift */; };
 		E097DBF3227F77FC00634B12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097DBF2227F77FC00634B12 /* AppDelegate.swift */; };
 		E097DBF5227F77FC00634B12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E097DBF4227F77FC00634B12 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		87332B1E4FE072387B4DB810 /* Pods-Pollen IndexUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollen IndexUITests.debug.xcconfig"; path = "Target Support Files/Pods-Pollen IndexUITests/Pods-Pollen IndexUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		ADFF317FB86E7DFB3CF46F13 /* Pods-Pollen IndexTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pollen IndexTests.release.xcconfig"; path = "Target Support Files/Pods-Pollen IndexTests/Pods-Pollen IndexTests.release.xcconfig"; sourceTree = "<group>"; };
 		E02AC5D4228A188C0093E216 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E02D4E0222D7D5DC00E1E488 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		E030DB8A22810DC80043840D /* AirQualityRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityRequest.swift; sourceTree = "<group>"; };
 		E097DBEF227F77FC00634B12 /* Pollen Index.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pollen Index.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E097DBF2227F77FC00634B12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				E097DBFE227F77FE00634B12 /* Info.plist */,
 				E097DC20227F781800634B12 /* PollenRequest.swift */,
 				E030DB8A22810DC80043840D /* AirQualityRequest.swift */,
+				E02D4E0222D7D5DC00E1E488 /* Request.swift */,
 			);
 			path = "Pollen Index";
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			files = (
 				E030DB8B22810DC80043840D /* AirQualityRequest.swift in Sources */,
 				E097DBF5227F77FC00634B12 /* ViewController.swift in Sources */,
+				E02D4E0322D7D5DC00E1E488 /* Request.swift in Sources */,
 				E097DBF3227F77FC00634B12 /* AppDelegate.swift in Sources */,
 				E097DC21227F781800634B12 /* PollenRequest.swift in Sources */,
 			);
