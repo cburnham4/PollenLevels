@@ -39,10 +39,8 @@ extension Request {
                 return
             }
             
-            let decoder = JSONDecoder()
-            
             do {
-                let resultObject = try decoder.decode(ResultObject.self, from: responseData)
+                let resultObject = try JSONDecoder().decode(ResultObject.self, from: responseData)
                 DispatchQueue.main.async {
                     result(.success(resultObject))
                 }
