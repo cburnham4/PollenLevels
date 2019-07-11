@@ -47,9 +47,7 @@ extension Request {
                     result(.success(resultObject))
                 }
             } catch {
-                print(self.endpoint)
                 print(error)
-                print(String(bytes: responseData, encoding: .utf8))
                 DispatchQueue.main.async {
                     result(.failure(error: "Error: did not receive data"))
                 }
