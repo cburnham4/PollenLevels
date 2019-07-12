@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A06669E86F1996C0756E63AB114853E"
+               BlueprintIdentifier = "0B997A2816BEB2A2042C69E5A0D984CC"
                BuildableName = "LhHelpers.framework"
                BlueprintName = "LhHelpers"
                ReferencedContainer = "container:Pods.xcodeproj">

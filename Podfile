@@ -5,7 +5,7 @@ target 'Pollen Index' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'LhHelpers'
+  pod 'LhHelpers', '~> 1.4.2'
   pod 'Firebase/Analytics'
   pod 'Firebase/AdMob'
   pod 'Fabric', '~> 1.10.2'

@@ -49,6 +49,7 @@ struct PollenRequest: Request {
     
     typealias ResultObject = PollenResponse
     
+    // TODO Angel fix this as well. doh
     var endpoint: String {
         let latLong = String.init(format: "[%f,%f]", 38.890759, -77.084747)
         return "https://socialpollencount.co.uk/api/forecast?location=\(latLong)"
