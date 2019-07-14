@@ -141,7 +141,7 @@ class ViewController: UIViewController {
     lazy var airQualityBind = {
         return Bond<AirQualityData?>(valueChanged: { [weak self] value in
             if let value = value {
-                self?.airQualityLabel.text = value.level
+                self?.loadAirQuality(airQuality: value)
             } else if let strongSelf = self {
                 AlertUtils.createAlert(view: strongSelf, title: "Error Retrieving Air Quality Values", message: "")
             }
@@ -172,6 +172,28 @@ class ViewController: UIViewController {
         bannerView.adUnitID = "ca-app-pub-8223005482588566/5223451763"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
+    }
+    
+    func loadAirQuality(airQuality: AirQualityData) {
+        switch airQuality.aqi {
+        case 0...50:
+            airQualityLabel.text = airQuality.level
+            airQualityLabel.textColor = .green
+        case 51...100:
+            airQualityLabel.text = airQuality.level
+            airQualityLabel.textColor = .yellow
+        case 101...150:
+            airQualityLabel.text = airQuality.level
+            airQualityLabel.textColor = .orange
+        case 151...200:
+            airQualityLabel.text = airQuality.level
+            airQualityLabel.textColor = .red
+        case 201...300:
+            airQualityLabel.text = airQuality.level
+            airQualityLabel.textColor = .purple
+        default:
+            break
+        }
     }
     
     func loadPollenLevel(pollenResponse: PollenDayResponse) {
