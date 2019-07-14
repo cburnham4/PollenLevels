@@ -51,7 +51,7 @@ struct PollenRequest: Request {
     
     // TODO Angel fix this as well. doh
     var endpoint: String {
-        let latLong = String.init(format: "[%f,%f]", 38.890759, -77.084747)
+        let latLong = String.init(format: "[%f,%f]", lat, long)
         return "https://socialpollencount.co.uk/api/forecast?location=\(latLong)"
     }
 }
