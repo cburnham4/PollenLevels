@@ -29,7 +29,7 @@ struct AirQualityData: Codable {
         case 201...300:
             return "Very Unhealthy (\(aqi))"
         default:
-            return ""
+            return "Hazardous (\(aqi))"
         }
 //        0 to 50    Good    Green
 //        51 to 100    Moderate    Yellow

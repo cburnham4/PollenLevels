@@ -181,7 +181,7 @@ class ViewController: UIViewController {
             airQualityLabel.textColor = .green
         case 51...100:
             airQualityLabel.text = airQuality.level
-            airQualityLabel.textColor = .yellow
+            airQualityLabel.textColor = UIColor(red: 204, green: 204, blue: 0)
         case 101...150:
             airQualityLabel.text = airQuality.level
             airQualityLabel.textColor = .orange
@@ -192,7 +192,8 @@ class ViewController: UIViewController {
             airQualityLabel.text = airQuality.level
             airQualityLabel.textColor = .purple
         default:
-            break
+            airQualityLabel.text = airQuality.level
+            airQualityLabel.textColor = UIColor(red: 128, green: 0, blue: 0)
         }
     }
     
