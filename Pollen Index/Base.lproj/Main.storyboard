@@ -106,14 +106,13 @@
                                     <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLR-fM-San">
                                         <rect key="frame" x="0.0" y="112" width="382" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Air Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AV-cr-lWt">
-                                                <rect key="frame" x="8" y="15" width="411" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Air Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AV-cr-lWt">
+                                                <rect key="frame" x="8" y="15" width="246" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFQ-hg-Bdz">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="pFQ-hg-Bdz">
                                                 <rect key="frame" x="262" y="15" width="72" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -123,8 +122,11 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" red="0.37356263070000001" green="1" blue="0.19478699560000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="8AV-cr-lWt" firstAttribute="leading" secondItem="SLR-fM-San" secondAttribute="leading" constant="8" id="HhH-Ww-jdG"/>
                                             <constraint firstAttribute="trailing" secondItem="pFQ-hg-Bdz" secondAttribute="trailing" constant="48" id="XeY-uC-ctN"/>
+                                            <constraint firstItem="pFQ-hg-Bdz" firstAttribute="leading" secondItem="8AV-cr-lWt" secondAttribute="trailing" constant="8" id="g4V-nC-0ef"/>
                                             <constraint firstItem="pFQ-hg-Bdz" firstAttribute="centerY" secondItem="SLR-fM-San" secondAttribute="centerY" id="ji3-Q1-UdV"/>
+                                            <constraint firstItem="8AV-cr-lWt" firstAttribute="centerY" secondItem="SLR-fM-San" secondAttribute="centerY" id="n3K-0T-gbq"/>
                                             <constraint firstAttribute="height" constant="50" id="ri6-9G-Lgs"/>
                                         </constraints>
                                     </view>
