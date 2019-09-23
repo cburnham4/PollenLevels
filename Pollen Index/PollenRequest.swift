@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LhHelpers
 
 struct PollenResponse: Codable {
     var forecast: [PollenDayResponse]
@@ -25,7 +26,7 @@ struct PollenResponse: Codable {
                 return pollenDay
             }
         }
-        return forecast[0]
+        return PollenDayResponse(weather: "Unkown", pollen_count: .Moderate, date: "Today")
     }
 }
 

@@ -235,10 +235,10 @@ class ViewController: UIViewController {
     func openLocationPicker(){
         let locationPicker = LocationPickerViewController()
 
-        let initialLocation = Location(name: "Current Location", location: viewModel.location, placemark: viewModel.placemark)
-        
-        locationPicker.location = initialLocation
-        
+        if let placemark = viewModel.placemark {
+            locationPicker.location = Location(name: "Current Location", location: viewModel.location, placemark: placemark)
+        }
+
         locationPicker.showCurrentLocationButton = true
         locationPicker.currentLocationButtonBackground = .blue
         locationPicker.showCurrentLocationInitially = true
