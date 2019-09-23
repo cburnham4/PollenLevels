@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct AirQualityResponse: Codable {
     let data: AirQualityData
@@ -16,7 +17,6 @@ struct AirQualityData: Codable {
     let aqi: Int
     
     var level: String {
-        // TODO: Angel, complete this switch statement. This is a computer property: https://docs.swift.org/swift-book/LanguageGuide/Properties.html
         switch aqi {
         case 0...50:
             return "Good (\(aqi))"
@@ -31,12 +31,6 @@ struct AirQualityData: Codable {
         default:
             return "Hazardous (\(aqi))"
         }
-//        0 to 50    Good    Green
-//        51 to 100    Moderate    Yellow
-//        101 to 150    Unhealthy for Sensitive Groups    Orange
-//        151 to 200    Unhealthy    Red
-//        201 to 300    Very Unhealthy    Purple
-//        301 to 500
     }
 }
 

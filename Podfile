@@ -5,15 +5,14 @@ target 'Pollen Index' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'LhHelpers', '~> 1.4.2'
+  pod 'LhHelpers', '~> 2.0.1'
   pod 'Firebase/Analytics'
   pod 'Firebase/AdMob'
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.13.2'
-
   
-  # Fork location picker to get swift 4.2
-  pod 'LocationPicker', :git => 'https://github.com/letshangllc/LocationPicker', :branch => 'master'
+  
+  pod 'LocationPicker', :git => 'https://github.com/almassapargali/LocationPicker', :branch => 'master'
 
   target 'Pollen IndexTests' do
     inherit! :search_paths

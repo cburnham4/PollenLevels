@@ -1,6 +1,0 @@
-framework module LhHelpers {
-  umbrella header "LhHelpers-umbrella.h"
-
-  export *
-  module * { export * }
-}

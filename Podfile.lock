@@ -54,8 +54,8 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.0.0):
     - GoogleUtilities/Logger
-  - LhHelpers (1.4.2)
-  - LocationPicker (1.3.0)
+  - LhHelpers (2.01)
+  - LocationPicker (1.4.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -67,8 +67,8 @@ DEPENDENCIES:
   - Fabric (~> 1.10.2)
   - Firebase/AdMob
   - Firebase/Analytics
-  - LhHelpers (~> 1.4.2)
-  - LocationPicker (from `https://github.com/letshangllc/LocationPicker`, branch `master`)
+  - LhHelpers (~> 2.0.1)
+  - LocationPicker (from `https://github.com/almassapargali/LocationPicker`, branch `master`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -87,12 +87,12 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   LocationPicker:
     :branch: master
-    :git: https://github.com/letshangllc/LocationPicker
+    :git: https://github.com/almassapargali/LocationPicker
 
 CHECKOUT OPTIONS:
   LocationPicker:
-    :commit: 2e62d94712779469b004b90f70cfcd0007ecb6fe
-    :git: https://github.com/letshangllc/LocationPicker
+    :commit: 907f51465d7511b7c7661977d7e5bbd162c50f4f
+    :git: https://github.com/almassapargali/LocationPicker
 
 SPEC CHECKSUMS:
   Crashlytics: 611738c7847f8291a1a51084e35987b86ba6b3ee
@@ -104,10 +104,10 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 1e72b4f438d997ab0f2ee62b3a7b0cbcc87c47cb
   GoogleAppMeasurement: 7f028ea162b72c8f326daec74afc95d94f7a47d6
   GoogleUtilities: f1faafc033ea203adf1783ce00af455bb99d0e5b
-  LhHelpers: c5de4519c8c6872742961e3122540944d4cdc86d
-  LocationPicker: f0df70bfedc20c4ba475e81c59997f64a77a9752
+  LhHelpers: 31722f7b30c469f1b70f15445a132654efe06b16
+  LocationPicker: 0569608932843bc7686aaec4192d6fc83f8f2b7d
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: 64f176b9dc609c2ce7e6b07d378e967eefee1111
+PODFILE CHECKSUM: 90c58d9cf2f6d66f75fa273538c259312c17fa1c
 
 COCOAPODS: 1.6.1
