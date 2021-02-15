@@ -7,9 +7,7 @@ target 'Pollen Index' do
 
   pod 'LhHelpers', '~> 2.0.1'
   pod 'Firebase/Analytics'
-  pod 'Firebase/AdMob'
-  pod 'Fabric', '~> 1.10.2'
-  pod 'Crashlytics', '~> 3.13.2'
+  pod 'Google-Mobile-Ads-SDK'
   
   
   pod 'LocationPicker', :git => 'https://github.com/almassapargali/LocationPicker', :branch => 'master'
